@@ -2,23 +2,18 @@ import re
 import os
 from groq import Groq
 
-# Initialize Groq Client — One Line
 groq_client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 
-# Hint: Same Pattern As Month 4 But Synchronous
 def layer_regex_check(observation):
 
     suspicious_patterns = [
-        # Your 5 Credential Patterns Stay
         r"(?i)password\s*=\s*['\"].+?['\"]",
         r"(?i)secret\s*=\s*['\"].+?['\"]",
         r"(?i)token\s*=\s*['\"].+?['\"]",
         r"(?i)credentials\s*=\s*['\"].+?['\"]",
         r"(?i)private[_-]?key\s*=\s*['\"].+?['\"]",
 
-        # Add 4 Prompt Injection Patterns Here
-        # Four Natural Language Prompt Injection Patterns
         r"(?i)ignore\s*previous\s*instructions",
         r"(?i)override\s*system\s*message",
         r"(?i)add\s*to\s*the\s*prompt",
